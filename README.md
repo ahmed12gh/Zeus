@@ -1,8 +1,9 @@
 # Zeus
 ![icon](icon/zeus128.png)
+![screenshot](readme/screenshot.png)
 
 ## about
-is a Keyborad base calculator that allow the use of varables inside the input 
+is a Keyborad base calculator that allow the use of varables inside the input, currently only for windows  
 
 ## Uses
 ---
@@ -36,3 +37,10 @@ the list of allowed opraters and how to use can be found in [[opraters]]
 - program crash with alot of varables to repalce 
 - debug cmd when touch crash 
 - input form overlaps last result if font size is big 
+
+
+## Building the app 
+you should have `gcc` and windows headers then only run `build.bat` for official release or `build(debug).bat` for debug version 
+
+## credits 
+The `.ini` library is from [rxi](https://github.com/rxi/ini) 
