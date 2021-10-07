@@ -1,2 +1,5 @@
-.vscode/
-out/
+/.vscode/
+/out/
+
+# gimp image source files 
+*.xcf
