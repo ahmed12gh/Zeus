@@ -1,0 +1,23 @@
+#include "resources.h"
+#include <windows.h>
+
+
+MAINICON_ID ICON "icon/zeus512.ico" 
+SmallMAINICON_ID ICON "icon/zeus128.ico"
+CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "gui.c.manifest" 
+
+Menu_ID MENU DISCARDABLE
+BEGIN
+	POPUP "Settings"
+	BEGIN
+		MENUITEM "Open Config file" , OpenConifFile_ID
+		MENUITEM "Open Histroy file" , OpenHistoryFile_ID
+		MENUITEM "Reset Setting" , Rest_Config_file_ID
+		MENUITEM "Delete History file" , deleteHistoryFile_ID
+	END
+	POPUP "Edit"
+	BEGIN
+		MENUITEM "Clear Output" , Clear_Output_ID 
+		MENUITEM "Clear input" , Clear_Input_ID 
+	END
+END
