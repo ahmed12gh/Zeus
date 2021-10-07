@@ -30,7 +30,12 @@ x = 1* 4 = 4
 2 * x  + 1 = 9 
 ```
 
-the list of allowed opraters and how to use can be found in [[opraters]]
+you can also root to any postive number 
+``` 
+2r16 = 4
+
+3r27 = 3
+```
 
 
 ## know bugs 
