@@ -30,7 +30,8 @@ x = 1* 4 = 4
 2 * x  + 1 = 9 
 ```
 
-you can also root to any postive number 
+but you can't name a varable from multpile charachtes nor from the charachter "r" because its the root oprater 
+
 ``` 
 2r16 = 4
 
