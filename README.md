@@ -6,7 +6,7 @@
 is a Keyborad base calculator that allow the use of varables inside the input, currently only for windows  
 
 ## Uses
----
+
 Input form : 
 ```
 x = 1 * 4 // press enter 
