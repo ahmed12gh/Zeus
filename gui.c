@@ -212,13 +212,17 @@ LRESULT CALLBACK InputProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
             ZeroMemory(cText , Tlength+ (formulaLen * LENNUMBER)) ; 
             GetWindowText(hwnd, Text, Tlength);
             wprintf(L"InputProc() : %s \n ", Text);
+            
 
-            wcstombs(cText, Text, Tlength + 1);
+
+
             if (Tlength > 1){
                 AppendTextToControl(hOut, Text);
                 if (historyFileSetting) writeToFile(HistoryFile , cText ) ;
             }
 
+            replace_UniCharahcter(Text , 0x221A  , L'~') ;
+            wcstombs(cText, Text, Tlength + 1);
             removeChar(cText , ' '); // remove spaces from formula 
             printf("text after removeing spaces from it : %s\n" , cText) ; 
             MultplieCloseVar(cText) ; 
@@ -308,6 +312,10 @@ LRESULT CALLBACK InputProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
 
         case 0x7F: // Ctrl + Backspace
             SetWindowText(hwnd, NULL);
+            break;
+        
+        case 18 : 
+            AppendTextToControl(hwnd,L"√"); 
             break;
 
         default:

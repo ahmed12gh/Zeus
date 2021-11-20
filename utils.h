@@ -30,7 +30,7 @@ NUMBER PlusNumber = {{'+'}, 1};
 NUMBER divNumber = {{'/'}, 1};
 NUMBER MultNumber = {{'*'}, 1};
 NUMBER PowerNumber = {{'^'}, 1};
-NUMBER RootNumber = {{'r'}, 1};
+NUMBER RootNumber = {{'~'}, 1};
 
 
 int LastFilledIndexArray(Array arr)
@@ -266,6 +266,24 @@ void removeChar(char *str, char c) {
     }
 }
 
+void replace_UniCharahcter(wchar_t *str, wchar_t c , wchar_t r) {
+    int ofMv = 0, cnt = 0;
+    
+    for(; str[cnt] != 0; ofMv++) {
+    
+        if(str[ofMv] == c && str[ofMv])
+              str[cnt] = r;
+        	cnt++;
+		continue;
+    
+        str[cnt] = str[ofMv];
+        cnt++;
+    
+        if(!str[ofMv])
+            return;
+    }
+}
+
 bool is_equalNum(NUMBER num1, NUMBER num2)
 {
 
@@ -372,7 +390,7 @@ double calc(NUMBER num1, NUMBER num2, NUMBER opr)
 	case '*':
 		result = float1 * float2;
 		break;
-	case 'r':
+	case '~':
 		result = (double)pow(float2, 1.0 / float1);
 		break;
 	case '^':

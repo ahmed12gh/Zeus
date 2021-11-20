@@ -52,7 +52,7 @@ void setConfig(char * fn  ) ;
 
 // BUGS : 
 
-char opraters[] = {'+', '-', '/', '*', '^', 'r', '(', ')'};
+char opraters[] = {'+', '-', '/', '*', '^', '~' , '(', ')'};
 
 void removeReturnChar(char *arr)
 {
@@ -110,7 +110,7 @@ Array power_root(Array arr)
 {
 	Array newFormula = {{}, 0};
 	newFormula = arr ; 
-	char check_list[] = "^r";
+	char check_list[] = "^~";
 	for (int i = 0; i < formulaLen; i++)
 	{
 		char *c = arr.arr[i].arr;
@@ -299,7 +299,7 @@ NUMBER do_formulaArr(Array arr)
 		PrintArray(NewFormula) ; 
 	}
 
-	if (charInArray('^', NewFormula) || charInArray('r', NewFormula))
+	if (charInArray('^', NewFormula) || charInArray('~', NewFormula))
 	{
 		NewFormula = power_root(NewFormula);
 		printf("after ^ & r : "); 
@@ -383,7 +383,7 @@ int replace_Varables_by_values(varable* list , int lastfilled , char * text , in
 		char c = text[i]; 
 		
 		//found a varables 
-		if(isalpha(c) && c != 'r'){
+		if(isalpha(c) && c != '~'){
 			name[0] = text[i] ;
 			index = i ;  
 			found=true ; 
@@ -443,7 +443,7 @@ int replace_Varables_by_values(varable* list , int lastfilled , char * text , in
 		// add a * between two varables
 		text[i] = temptext[tempI++] ; 
 
-		if(isalpha(text[i]) && text[i] != 'r') break ; // found a var 
+		if(isalpha(text[i]) && text[i] != '~') break ; // found a var 
 			 
 		printf("replace Varables() : temptext[%d] = %c \n" , tempI , temptext[tempI]) ; 
 	}
@@ -468,12 +468,12 @@ void MultplieCloseVar(char* text) {
 	int tempIndex = 0 ;
 	int i = 0 ; 
 	for(; text[i] ; i++){
-		if(text[i] != 'r'){
-			if(isalpha(text[i]) && isalpha(text[i+1]) && text[i+1] != 'r'){
+		if(text[i] != '~'){
+			if(isalpha(text[i]) && isalpha(text[i+1]) && text[i+1] != '~'){
 				temp[tempIndex++] = text[i] ; 
 				temp[tempIndex] = '*' ;
 			}
-			else if(isdigit(text[i]) && isalpha(text[i+1]) && text[i+1] != 'r'){
+			else if(isdigit(text[i]) && isalpha(text[i+1]) && text[i+1] != '~'){
 				temp[tempIndex++] = text[i] ; 
 				temp[tempIndex] = '*' ;
 			}
@@ -485,7 +485,7 @@ void MultplieCloseVar(char* text) {
 			
 			tempIndex ++ ; 
 		}else{
-			temp[tempIndex++] = 'r' ; 
+			temp[tempIndex++] = '~' ; 
 		}
 	}
 	// ZeroMemory(text , (sizeof(char) * (strlen(text) ))) ; 
